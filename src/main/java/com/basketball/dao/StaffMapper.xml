@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basketball.dao.StaffMapper">
+
+    <insert id="addStaff" parameterType="Staff">
+        insert into basketball.staff(StaffId, StaffName, StaffSex, StaffAge, StaffPwd)
+        VALUES (#{StaffId},#{StaffName},#{StaffSex},#{StaffAge},#{StaffPwd});
+    </insert>
+
+    <delete id="deleteStaffById" parameterType="int">
+        delete from basketball.staff
+        where StaffId=#{staffId}
+    </delete>
+    
+    <update id="updateStaff" parameterType="Staff">
+        update basketball.staff
+        set StaffName=#{StaffName},StaffSex=#{StaffSex},StaffAge=#{StaffAge},StaffPwd=#{StaffPwd}
+        where StaffId=#{staffId};
+    </update>
+
+    <select id="queryStaffById" resultType="Staff">
+        select * from basketball.staff
+        where StaffId=#{staffId};
+    </select>
+
+    <select id="queryAllStaff" resultType="Staff">
+        select * from basketball.staff;
+    </select>
+
+    <select id="queryStaffByName" resultType="Staff">
+        select * from basketball.staff where StaffName=#{staffName};
+    </select>
+</mapper>

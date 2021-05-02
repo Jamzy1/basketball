@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--配置数据源，交由Spring-->
+    <typeAliases>
+        <package name="com.basketball.pojo"/>
+    </typeAliases>
+
+
+
+    <mappers>
+        <mapper class="com.basketball.dao.ActivityMapper"/>
+        <mapper class="com.basketball.dao.MemberMapper"/>
+        <mapper class="com.basketball.dao.NewMapper"/>
+        <mapper class="com.basketball.dao.PlanMapper"/>
+        <mapper class="com.basketball.dao.RecordMapper"/>
+        <mapper class="com.basketball.dao.StaffMapper"/>
+        <mapper class="com.basketball.dao.SuppMapper"/>
+    </mappers>
+
+
+
+</configuration>

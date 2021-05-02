@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basketball.dao.MemberMapper">
+
+    <insert id="addMember" parameterType="Member">
+        insert into basketball.member (MemberId, MemberName, MemberSex, MemberAge, MemberPwd)
+        values (#{MemberId},#{MemberName},#{MemberSex},#{MemberAge},#{MemberPwd});
+    </insert>
+
+    <delete id="deleteMemberById" parameterType="int">
+        delete from basketball.member
+        where MemberId=#{memberId}
+    </delete>
+
+    <update id="updateMember" parameterType="Member">
+        update basketball.member
+        set MemberName=#{memberName},MemberAge=#{memberAge},MemberSex=#{memberSex},MemberPwd=#{memberPwd}
+        where MemberId=#{memberId};
+    </update>
+
+    <select id="queryMemberById" resultType="Member">
+        select * from basketball.member
+        where MemberId=#{memberId};
+    </select>
+
+    <select id="queryAllMember" resultType="Member">
+        select * from basketball.member;
+    </select>
+    
+    <select id="queryMemberByName" resultType="Member">
+        select * from basketball.member where MemberName=#{memberName}
+    </select>
+
+</mapper>

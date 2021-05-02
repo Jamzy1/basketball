@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basketball.dao.NewMapper">
+
+    <insert id="addNew" parameterType="New">
+        insert into basketball.news (NewId, StaffId, NewWay, NewLimit)
+        values (#{NewId},#{StaffId},#{NewWay},#{NewLimit});
+    </insert>
+
+    <delete id="deleteNewById" parameterType="int">
+        delete from basketball.news
+        where NewId=#{newId}
+    </delete>
+
+    <update id="updateNew" parameterType="New">
+        update basketball.news
+        set StaffId=#{staffId},NewWay=#{newWay},NewLimit=#{newLimit}
+        where NewId=#{newId};
+    </update>
+
+    <select id="queryNewById" resultType="New">
+        select * from basketball.news
+        where NewId=#{newId};
+    </select>
+
+    <select id="queryAllNew" resultType="New">
+        select * from basketball.news;
+    </select>
+
+
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basketball.dao.SuppMapper">
+
+    <insert id="addSupp" parameterType="Supp">
+        insert into basketball.supp (SuppId, StaffId, SuppNumber, SuppKind)
+        values (#{SuppId},#{StaffId},#{SuppNumber},#{SuppKind});
+    </insert>
+
+    <delete id="deleteSuppById" parameterType="int">
+        delete from basketball.supp
+        where SuppId=#{suppId}
+    </delete>
+
+    <update id="updateSupp" parameterType="Supp">
+        update basketball.supp
+        set StaffId=#{staffId},SuppNumber=#{suppNumber},SuppKind=#{suppKind}
+        where SuppId=#{suppId};
+    </update>
+
+    <select id="querySuppById" resultType="Supp">
+        select * from basketball.supp
+        where SuppId=#{suppId};
+    </select>
+
+    <select id="queryAllSupp" resultType="Supp">
+        select * from basketball.supp;
+    </select>
+
+
+</mapper>

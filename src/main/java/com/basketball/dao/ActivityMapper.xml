@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basketball.dao.ActivityMapper">
+
+    <insert id="addActivity" parameterType="Activity">
+        insert into basketball.activity (ActivityId,NewId,SuppId,PlanId)
+        values (#{ActivityId},#{NewId},#{SuppId},#{PlanId});
+    </insert>
+
+    <delete id="deleteActivityById" parameterType="int">
+        delete from basketball.activity
+        where ActivityId=#{activityId}
+    </delete>
+
+    <update id="updateActivity" parameterType="Activity">
+        update basketball.activity
+        set NewId=#{newId},SuppId=#{suppId},PlanId=#{planId}
+        where ActivityId=#{activityId};
+    </update>
+
+    <select id="queryActivityById" resultType="Activity">
+        select * from basketball.activity
+        where ActivityId=#{activityId};
+    </select>
+
+    <select id="queryAllActivity" resultType="Activity">
+        select * from basketball.activity;
+    </select>
+
+
+</mapper>

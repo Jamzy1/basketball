@@ -1,0 +1,5 @@
+com\basketball\mapper\MemberMapper.class
+com\basketball\service\MemberServiceImpl.class
+com\basketball\service\MemberService.class
+com\basketball\pojo\Activity.class
+com\basketball\pojo\Member.class

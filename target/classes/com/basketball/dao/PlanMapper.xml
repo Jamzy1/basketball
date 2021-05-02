@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basketball.dao.PlanMapper">
+
+
+    <insert id="addPlan" parameterType="Plan">
+        insert into basketball.plan (PlanId, PlanName, PlanTime, PlanPlace, PlanNumber, PlanDuration)
+        VALUES (#{PlanId},#{PlanName},#{PlanTime},#{PlanPlace},#{PlanNumber},#{PlanDuration}) ;
+    </insert>
+
+    <delete id="deletePlanById" parameterType="int">
+        delete from basketball.plan
+        where PlanId=#{planId}
+    </delete>
+
+    <update id="updatePlan" parameterType="Plan">
+        update basketball.plan
+        set PlanName=#{planName},PlanTime=#{planTime},PlanPlace=#{planPlace},PlanNumber=#{planNumber},PlanDuration=#{planDuration}
+        where PlanId=#{planId};
+    </update>
+
+    <select id="queryPlanById" resultType="Plan">
+        select * from basketball.plan
+        where PlanId=#{planId}
+    </select>
+
+    <select id="queryAllPlan" resultType="Plan">
+        select * from basketball.plan;
+    </select>
+
+    <select id="queryPlanByName" resultType="Plan">
+        select * from basketball.plan
+        where PlanName=#{planName};
+    </select>
+
+
+</mapper>
